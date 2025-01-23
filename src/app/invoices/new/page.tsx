@@ -19,6 +19,7 @@ export default async function Home() {
         </div>
 
         { JSON.stringify(results)}
+        {console.log(results)}
 
         <form className="grid gap-4 max-w-xs">
             <div>
