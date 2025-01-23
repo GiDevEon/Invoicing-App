@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { db } from "../../../db";
+import { db } from "@/db";
 
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
