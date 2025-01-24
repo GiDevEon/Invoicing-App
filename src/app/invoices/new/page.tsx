@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
-
+import { createAction } from "@/app/actions"
 
 export default async function Home() {
   const results = await db.execute(sql`SELECT current_database()`)
@@ -18,33 +18,30 @@ export default async function Home() {
             </h1>
         </div>
 
-        { JSON.stringify(results)}
-        {console.log(results)}
-
-        <form className="grid gap-4 max-w-xs">
+        <form action={createAction} className="grid gap-4 max-w-xs">
             <div>
-             <Label htmlFor="name" id="name" className="block font-semibold text-sm mb-2">
+             <Label htmlFor="name" className="block font-semibold text-sm mb-2">
                 Billing Name
              </Label>
-             <Input type="text" />   
+             <Input type="text" id="name" name="name" />   
             </div>
             <div>
-             <Label htmlFor="email" id="email "className="block font-semibold text-sm mb-2">
+             <Label htmlFor="email" className="block font-semibold text-sm mb-2">
                 Billing Email
              </Label>
-             <Input type="email" />   
+             <Input type="email" id="email" name="email" />   
             </div>
             <div>
-             <Label htmlFor="value" id="value" className="block font-semibold text-sm mb-2">
+             <Label htmlFor="value" className="block font-semibold text-sm mb-2">
                 Value
              </Label>
-             <Input type="text" />   
+             <Input type="text" id="value" name="value" />   
             </div>
             <div>
-             <Label htmlFor="description" id="description" className="block font-semibold text-sm mb-2">
+             <Label htmlFor="description" className="block font-semibold text-sm mb-2">
                 Description
              </Label>
-             <Textarea ></Textarea> 
+             <Textarea id="description" name="description"></Textarea> 
             </div>
             <div>
                 <Button className="w-full font-semibold">
