@@ -1,20 +1,19 @@
-import { defineConfig } from 'drizzle-kit';
+import { defineConfig } from "drizzle-kit";
 import * as dotenv from 'dotenv';
 
 dotenv.config({
-    path: './.env.local.'
-});
+  path: './.env.local'
+})
 
-
-
-if ( typeof process.env.XATADATABASE_URL !== 'string') {
-    throw new Error('Please set your XATA_DATABASE_URL');
+if ( typeof process.env.XATA_DATABASE_URL !== 'string' ) {
+  throw new Error('Please set your XATA_DATABASE_URL');
+}
 
 export default defineConfig({
-  out: './src/db/migrations',
-  schema: './src/db/schema.ts',
-  dialect: 'postgresql',
+  dialect: "postgresql",
+  schema: "./src/db/schema.ts",
+  out: "./src/db/migrations",
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
-  },
+    url: process.env.XATA_DATABASE_URL
+  }
 });
